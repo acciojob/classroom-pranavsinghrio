@@ -1,6 +1,5 @@
 package com.driver;
-
-import jdk.internal.access.JavaSecurityAccess;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -9,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 
 @Repository
+@RestController
 public class StudentRepository {
 
     private HashMap<String, Student> hs;
@@ -18,7 +18,7 @@ public class StudentRepository {
 
     public StudentRepository(){
         this.hs = new HashMap<String,Student >();
-        this.ht = new HashMap<String, Teacher>();
+        this.ht = new HashMap<>();
         this.hp = new HashMap<String, List<String>>();
     }
 
@@ -32,7 +32,7 @@ public class StudentRepository {
 
     public void saveStudentteacherPair(String s, String t){
 
-        //1. Add the movie into Datbase ---> WRONG bcz I dont have te movie object
+        //1. Add the movie into Database ---> WRONG bcz I dont have te movie object
 
         if(hs.containsKey(s)&&ht.containsKey(t)){
 
